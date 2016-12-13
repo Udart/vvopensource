@@ -2623,6 +2623,17 @@
 		96ED419810628A5500D8373F /* VVCURLDL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VVCURLDL.m; path = VVBasics/src/VVCURLDL.m; sourceTree = "<group>"; };
 		96EE5D6219840D5C00231124 /* Blue.qtz */ = {isa = PBXFileReference; lastKnownFileType = "video.quartz-composer"; path = Blue.qtz; sourceTree = "<group>"; };
 		96EE5D66198410BC00231124 /* ISFSupportTest.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ISFSupportTest.fs; sourceTree = "<group>"; };
+		F2991A8D1DFFFB85008F0DD3 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
+		F2991A8E1DFFFB85008F0DD3 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
+		F2991A8F1DFFFB85008F0DD3 /* ElementBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementBox.h; sourceTree = "<group>"; };
+		F2991A901DFFFB85008F0DD3 /* ElementBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElementBox.m; sourceTree = "<group>"; };
+		F2991A911DFFFB85008F0DD3 /* ElementChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementChain.h; sourceTree = "<group>"; };
+		F2991A921DFFFB85008F0DD3 /* ElementChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElementChain.m; sourceTree = "<group>"; };
+		F2991A931DFFFB85008F0DD3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F2991A941DFFFB85008F0DD3 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		F2991A951DFFFB85008F0DD3 /* NetworkSetupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkSetupController.h; sourceTree = "<group>"; };
+		F2991A961DFFFB85008F0DD3 /* NetworkSetupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkSetupController.m; sourceTree = "<group>"; };
+		F2991A971DFFFB85008F0DD3 /* OSCQueryTest-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "OSCQueryTest-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4202,6 +4213,7 @@
 		966D3E9618634FE900A7BE9E /* Applications */ = {
 			isa = PBXGroup;
 			children = (
+				F2991A8C1DFFFB85008F0DD3 /* vibOSCQueryTest */,
 				968FAA6D108B60C6000E470D /* CrashReporterTestApp */,
 				9656D910100F89F70064EEA6 /* MIDITestApp */,
 				9628D17F100E8B5B00C3944E /* OSCTestApp */,
@@ -4547,6 +4559,24 @@
 				96C8077519817CB500FA7825 /* NSString+DDMathParsing.m */,
 			);
 			name = "DDMathParser-master";
+			sourceTree = "<group>";
+		};
+		F2991A8C1DFFFB85008F0DD3 /* vibOSCQueryTest */ = {
+			isa = PBXGroup;
+			children = (
+				F2991A8D1DFFFB85008F0DD3 /* AppController.h */,
+				F2991A8E1DFFFB85008F0DD3 /* AppController.m */,
+				F2991A8F1DFFFB85008F0DD3 /* ElementBox.h */,
+				F2991A901DFFFB85008F0DD3 /* ElementBox.m */,
+				F2991A911DFFFB85008F0DD3 /* ElementChain.h */,
+				F2991A921DFFFB85008F0DD3 /* ElementChain.m */,
+				F2991A931DFFFB85008F0DD3 /* main.m */,
+				F2991A941DFFFB85008F0DD3 /* MainMenu.xib */,
+				F2991A951DFFFB85008F0DD3 /* NetworkSetupController.h */,
+				F2991A961DFFFB85008F0DD3 /* NetworkSetupController.m */,
+				F2991A971DFFFB85008F0DD3 /* OSCQueryTest-Info.plist */,
+			);
+			path = vibOSCQueryTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -5734,6 +5764,7 @@
 					};
 					1AFE77271D65AC9B003D8E7C = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 6K6LTH6U72;
 					};
 				};
 			};
@@ -9632,6 +9663,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -9664,6 +9697,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vidvox.ISF-Editor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -9686,7 +9720,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -9714,6 +9749,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vidvox.ISF-Editor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
