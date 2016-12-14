@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9532" systemVersion="14F2009" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment version="101000" identifier="macosx"/>
         <development version="5100" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -736,15 +736,15 @@
         <window title="Loading/Playback UI" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" animationBehavior="default" id="371" userLabel="Loading + Playback Window">
             <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" topStrut="YES"/>
-            <rect key="contentRect" x="0.0" y="546" width="552" height="631"/>
+            <rect key="contentRect" x="0.0" y="546" width="542" height="806"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
             <value key="minSize" type="size" width="552" height="631"/>
             <view key="contentView" id="372">
-                <rect key="frame" x="0.0" y="0.0" width="552" height="631"/>
+                <rect key="frame" x="0.0" y="0.0" width="542" height="806"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="556">
-                        <rect key="frame" x="8" y="604" width="266" height="17"/>
+                        <rect key="frame" x="8" y="779" width="266" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="center" title="Video Source (for FX/general use):" id="557">
                             <font key="font" metaFont="system"/>
@@ -753,7 +753,7 @@
                         </textFieldCell>
                     </textField>
                     <popUpButton verticalHuggingPriority="750" id="558">
-                        <rect key="frame" x="30" y="572" width="223" height="26"/>
+                        <rect key="frame" x="30" y="747" width="223" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="561" id="559">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -771,7 +771,7 @@
                         </connections>
                     </popUpButton>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="C5T-s8-5OV">
-                        <rect key="frame" x="8" y="521" width="266" height="34"/>
+                        <rect key="frame" x="8" y="696" width="266" height="34"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="center" id="M5f-Tc-nB1">
                             <font key="font" metaFont="system"/>
@@ -782,7 +782,7 @@ select to view a filter)</string>
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" id="xom-Dz-GWa">
-                        <rect key="frame" x="133" y="91" width="122" height="28"/>
+                        <rect key="frame" x="133" y="266" width="122" height="28"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Load System ISFs" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2Xr-2O-lbf">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -793,7 +793,7 @@ select to view a filter)</string>
                         </connections>
                     </button>
                     <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="541">
-                        <rect key="frame" x="10" y="123" width="262" height="390"/>
+                        <rect key="frame" x="10" y="298" width="262" height="390"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                         <clipView key="contentView" id="CkJ-Bb-9kY">
                             <rect key="frame" x="1" y="1" width="260" height="388"/>
@@ -838,7 +838,7 @@ select to view a filter)</string>
                         </scroller>
                     </scrollView>
                     <button verticalHuggingPriority="750" id="W6d-LM-VhA">
-                        <rect key="frame" x="27" y="91" width="108" height="28"/>
+                        <rect key="frame" x="27" y="266" width="108" height="28"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Load User ISFs" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rKt-QF-ggy">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -849,7 +849,7 @@ select to view a filter)</string>
                         </connections>
                     </button>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="566">
-                        <rect key="frame" x="278" y="604" width="266" height="17"/>
+                        <rect key="frame" x="278" y="779" width="266" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="center" title="Filter Input UI Items" id="567">
                             <font key="font" metaFont="system"/>
@@ -858,7 +858,7 @@ select to view a filter)</string>
                         </textFieldCell>
                     </textField>
                     <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="568">
-                        <rect key="frame" x="280" y="40" width="262" height="556"/>
+                        <rect key="frame" x="280" y="215" width="262" height="556"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <clipView key="contentView" id="imG-tQ-36j">
                             <rect key="frame" x="1" y="1" width="245" height="554"/>
@@ -883,7 +883,7 @@ select to view a filter)</string>
                         </scroller>
                     </scrollView>
                     <textField verticalHuggingPriority="750" id="W9r-R9-tQj">
-                        <rect key="frame" x="10" y="10" width="65" height="22"/>
+                        <rect key="frame" x="10" y="185" width="65" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="01r-wy-YSo">
                             <font key="font" metaFont="system"/>
@@ -895,7 +895,7 @@ select to view a filter)</string>
                         </connections>
                     </textField>
                     <textField verticalHuggingPriority="750" id="MOp-p5-sHB">
-                        <rect key="frame" x="99" y="10" width="65" height="22"/>
+                        <rect key="frame" x="99" y="185" width="65" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="A2e-wP-KRH">
                             <font key="font" metaFont="system"/>
@@ -907,7 +907,7 @@ select to view a filter)</string>
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="rxw-aU-wyY">
-                        <rect key="frame" x="81" y="13" width="12" height="17"/>
+                        <rect key="frame" x="81" y="188" width="12" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="x" id="lPn-ts-EnO">
                             <font key="font" metaFont="system"/>
@@ -916,7 +916,7 @@ select to view a filter)</string>
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="RKU-or-YBC">
-                        <rect key="frame" x="8" y="40" width="266" height="17"/>
+                        <rect key="frame" x="8" y="215" width="266" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="center" title="Rendering Resolution:" id="FVQ-Zs-gv5">
                             <font key="font" metaFont="system"/>
@@ -925,7 +925,7 @@ select to view a filter)</string>
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" id="ioR-ib-Vhw">
-                        <rect key="frame" x="164" y="4" width="57" height="32"/>
+                        <rect key="frame" x="164" y="179" width="57" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <buttonCell key="cell" type="push" title="/ 2" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OTH-aR-2eQ">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -936,7 +936,7 @@ select to view a filter)</string>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="hFE-rx-gCR">
-                        <rect key="frame" x="221" y="4" width="57" height="32"/>
+                        <rect key="frame" x="221" y="179" width="57" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <buttonCell key="cell" type="push" title="* 2" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4qU-GT-Glw">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -947,7 +947,7 @@ select to view a filter)</string>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="gAq-WJ-a9E">
-                        <rect key="frame" x="313" y="3" width="196" height="32"/>
+                        <rect key="frame" x="313" y="178" width="196" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <buttonCell key="cell" type="push" title="Save Current as DEFAULT" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="abu-s8-GY1">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -957,9 +957,98 @@ select to view a filter)</string>
                             <action selector="saveCurrentValsAsDefaults:" target="TZj-Qw-izL" id="fO0-EP-7aa"/>
                         </connections>
                     </button>
+                    <box autoresizesSubviews="NO" title="My OSC address" borderType="line" id="Kzs-qE-YSk">
+                        <rect key="frame" x="7" y="88" width="242" height="78"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <view key="contentView">
+                            <rect key="frame" x="1" y="1" width="240" height="62"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textField verticalHuggingPriority="750" id="bQj-Nd-CQo">
+                                    <rect key="frame" x="15" y="38" width="210" height="14"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="This app receives OSC data sent to:" id="FiB-zV-d9E">
+                                        <font key="font" metaFont="smallSystem"/>
+                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <textField verticalHuggingPriority="750" id="X5E-hG-vsp" userLabel="MyIP Field">
+                                    <rect key="frame" x="15" y="16" width="156" height="14"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="XXXXXXX" id="hXZ-EL-FZF">
+                                        <font key="font" metaFont="smallSystem"/>
+                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <textField verticalHuggingPriority="750" id="szr-KG-WkZ" userLabel="My Port Field">
+                                    <rect key="frame" x="176" y="14" width="46" height="19"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="9999" drawsBackground="YES" id="kVk-l8-LQx">
+                                        <numberFormatter key="formatter" formatterBehavior="custom10_4" allowsFloats="NO" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="5" id="gVI-A1-tkQ">
+                                            <nil key="negativeInfinitySymbol"/>
+                                            <nil key="positiveInfinitySymbol"/>
+                                            <real key="minimum" value="1024"/>
+                                            <real key="maximum" value="65535"/>
+                                        </numberFormatter>
+                                        <font key="font" metaFont="smallSystem"/>
+                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                    <connections>
+                                        <action selector="myPortFieldUsed:" target="494" id="3Yg-42-zmp"/>
+                                    </connections>
+                                </textField>
+                            </subviews>
+                        </view>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </box>
+                    <box autoresizesSubviews="NO" title="Received OSC data" borderType="line" id="dbi-9O-6O3">
+                        <rect key="frame" x="251" y="3" width="283" height="162"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                        <view key="contentView">
+                            <rect key="frame" x="1" y="1" width="281" height="146"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="Tqe-KZ-pEt">
+                                    <rect key="frame" x="18" y="14" width="245" height="122"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <clipView key="contentView" id="Bay-9p-uvg">
+                                        <rect key="frame" x="1" y="1" width="232" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <textView importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="4Yu-QP-USL" userLabel="Rx Data View">
+                                                <rect key="frame" x="0.0" y="0.0" width="232" height="120"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <size key="minSize" width="232" height="120"/>
+                                                <size key="maxSize" width="577" height="10000000"/>
+                                                <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <size key="minSize" width="232" height="120"/>
+                                                <size key="maxSize" width="577" height="10000000"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </clipView>
+                                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="3yW-dH-jWt">
+                                        <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </scroller>
+                                    <scroller key="verticalScroller" verticalHuggingPriority="750" controlSize="small" horizontal="NO" id="B20-pG-mkd">
+                                        <rect key="frame" x="233" y="1" width="11" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </scroller>
+                                </scrollView>
+                            </subviews>
+                        </view>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </box>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="557" y="-6242.5"/>
+            <point key="canvasLocation" x="552" y="-6159"/>
         </window>
         <customObject id="494" customClass="ISFEditorAppDelegate">
             <connections>
@@ -969,14 +1058,19 @@ select to view a filter)</string>
                 <outlet property="isfController" destination="577" id="617"/>
                 <outlet property="isfConverter" destination="EiD-4O-Zre" id="Dc9-al-i8u"/>
                 <outlet property="mainWindow" destination="371" id="701"/>
+                <outlet property="myIPField" destination="X5E-hG-vsp" id="T1C-2N-JpS"/>
+                <outlet property="myPortField" destination="szr-KG-WkZ" id="jGD-WO-6Zz"/>
+                <outlet property="oscManager" destination="GKE-Z5-FMG" id="Bg4-jH-iCn"/>
                 <outlet property="outputFreezeToggle" destination="722" id="725"/>
                 <outlet property="outputResLabel" destination="735" id="737"/>
                 <outlet property="outputSourcePUB" destination="716" id="724"/>
                 <outlet property="outputView" destination="536" id="576"/>
+                <outlet property="rxDataView" destination="4Yu-QP-USL" id="7J3-Km-aKK"/>
                 <outlet property="textureMatrix" destination="CO7-yL-A2u" id="YUc-tU-U13"/>
                 <outlet property="videoSourcePUB" destination="558" id="738"/>
             </connections>
         </customObject>
+        <customObject id="GKE-Z5-FMG" userLabel="OSC Manager" customClass="OSCManager"/>
         <customObject id="420" customClass="NSFontManager"/>
         <customObject id="577" customClass="ISFController">
             <connections>

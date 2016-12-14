@@ -23,6 +23,81 @@
 /*------------------------------------*/
 
 
+/* OSC receive */
+
++ (void) load	{
+    //	the OSCAddressSpace automatically creates a single instance of itself when the class is initialized (as soon as you call anything that uses the OSCAddressSpace class, it gets created)
+    [OSCAddressSpace class];
+}
+
+- (void) awakeFromNib	{
+    //NSLog(@"%s",__func__);
+    [oscManager setInPortLabelBase:@"OSCQueryTest"];
+    //	create a new input port, populate the relevant fields
+    OSCInPort		*inPort = [oscManager createNewInput];
+    if (inPort == nil)
+        return;
+    NSArray			*addressArray = [OSCManager hostIPv4Addresses];
+    [myIPField setStringValue:(addressArray!=nil && [addressArray count]>0) ? [addressArray objectAtIndex:0] : @"127.0.0.1"];
+    [myPortField setIntValue:[inPort port]];
+
+    /*	set this object as the address space's delegate.  the address space needs to dispatch replies to queries it received- the main instance of OSCAddressSpace does this by notifying its delegate (which presumably dispatches it to an OSCManager or directly to the port)		*/
+    [(OSCAddressSpace *)_mainVVOSCAddressSpace setDelegate:self];
+    /*	enable auto query reply in the main address space node- the OSCAddressSpace instance (which is the "top-level" OSC node) will automatically assemble replies for queries		*/
+    [_mainVVOSCAddressSpace setAutoQueryReply:YES];
+    
+    
+    [oscManager setDelegate:self];
+}
+
+- (IBAction) myPortFieldUsed:(id)sender	{
+    MutLockArray		*inPortArray = [oscManager inPortArray];
+    if (inPortArray==nil || [inPortArray count]<1)	{
+        NSLog(@"\t\terr: no input ports in %s",__func__);
+        return;
+    }
+    OSCInPort			*inPort = [inPortArray lockObjectAtIndex:0];
+    [inPort setPort:[myPortField intValue]];
+}
+
+//	this method updates the text views at the bottom of the app with the contents of the received messages
+- (void) _lockedUpdateDataAndViews	{
+    while ([rxMsgs count] > MAXMSGS)
+        [rxMsgs removeObjectAtIndex:0];
+    
+    NSMutableString		*rxString = [NSMutableString stringWithCapacity:0];
+    int					lineCount = 0;
+    
+    for (OSCMessage *tmpMsg in [rxMsgs array])	{
+        if ((NSNull *)tmpMsg == NSNULL)
+            [rxString appendFormat:@"%d\n",lineCount];
+        else
+            [rxString appendFormat:@"%d\t%@\n",lineCount,[tmpMsg description]];
+        ++lineCount;
+    }
+    
+    NSLog(@"Value of rxString is %@", rxString);
+    
+    [rxDataView
+     performSelectorOnMainThread:@selector(setString:)
+     withObject:[[rxString copy] autorelease]
+     waitUntilDone:NO];
+    
+    lineCount = 0;
+}
+
+- (void) addRXMsg:(OSCMessage *)m	{
+    if (m==nil)
+        return;
+    [rxMsgs wrlock];
+    [rxMsgs addObject:m];
+    [self _lockedUpdateDataAndViews];
+    [rxMsgs unlock];
+}
+
+/* -------- */
+
+
 - (id) init {
 	if (self = [super init])	{
 		/*
@@ -36,6 +111,10 @@
 			}
 		}
 		*/
+        
+        // init OSC receive
+        rxMsgs = [[MutLockArray alloc] init];
+        //
 		
 		sharedContext = nil;
 		syphonServer = nil;
@@ -72,6 +151,8 @@
 	[self release];
 	return nil;
 }
+
+
 - (void)dealloc {
 	VVRELEASE(lastSourceBuffer);
 	[super dealloc];
@@ -1444,6 +1525,35 @@
 	return YES;
 }
 
+/* OSC receive */
+
+/*===================================================================================*/
+#pragma mark --------------------- OSCManager delegate (OSCDelegateProtocol)
+/*------------------------------------*/
+
+
+- (void) receivedOSCMessage:(OSCMessage *)m	{
+    //	add the message to the array of received messages for display in the data views
+    [self addRXMsg:m];
+    
+    //	dispatch the message to the OSC address space- this sends the message to the appropriate node
+    [_mainVVOSCAddressSpace dispatchMessage:m];
+}
+
+
+/*===================================================================================*/
+#pragma mark --------------------- OSCAddressSpaceDelegateProtocol- i'm the OSCAddressSpace's delegate
+/*------------------------------------*/
+
+
+- (void) nodeRenamed:(OSCNode *)n	{
+    /*		left intentionally blank- don't need to do anything, just want to avoid a warning for not having this method		*/
+}
+- (void) queryResponseNeedsToBeSent:(OSCMessage *)m	{
+    /*		left intentionally blank- don't need to do anything, just want to avoid a warning for not having this method		*/
+}
+
+//
 
 @end
 
@@ -1463,3 +1573,5 @@ CVReturn displayLinkCallback(CVDisplayLinkRef displayLink,
 	[pool release];
 	return kCVReturnSuccess;
 }
+
+

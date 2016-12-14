@@ -23,10 +23,17 @@
 #import <Syphon/Syphon.h>
 #import "MouseView.h"
 
+//OSC receive
+
+#import <VVOSC/VVOSC.h>
+
+#define NSNULL [NSNull null]
+#define MAXMSGS 25
+
+//
 
 
-
-@interface ISFEditorAppDelegate : NSObject <NSApplicationDelegate,DynamicVideoSourceDelegate>	{
+@interface ISFEditorAppDelegate : NSObject <NSApplicationDelegate,DynamicVideoSourceDelegate,OSCDelegateProtocol, OSCAddressSpaceDelegateProtocol>	{
 	IBOutlet NSWindow			*mainWindow;
 	
 	NSOpenGLContext				*sharedContext;
@@ -61,7 +68,26 @@
 	IBOutlet DocController		*docController;
 	IBOutlet ISFConverter		*isfConverter;
 	IBOutlet ISFPDownloader		*downloader;
+    
+    //OSC receive
+    
+   	IBOutlet OSCManager			*oscManager;
+    IBOutlet NSTextField		*myIPField;
+	IBOutlet NSTextField		*myPortField;
+    
+   	IBOutlet NSTextView			*rxDataView;
+
+    MutLockArray				*rxMsgs;
+    
+    //
 }
+
+//OSC receive
+
+- (void) addRXMsg:(OSCMessage *)m;
+- (void) _lockedUpdateDataAndViews;
+
+//
 
 - (IBAction) importFromISFSite:(id)sender;
 - (IBAction) importFromGLSLSandbox:(id)sender;
