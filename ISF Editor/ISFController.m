@@ -10,9 +10,6 @@
 #import "VVKQueueCenter.h"
 #import "ISFEditorAppDelegate.h"
 
-
-
-
 #define ISFITEMHEIGHT 50
 #define ISFITEMSPACE 10
 
@@ -55,7 +52,6 @@
 		[scene setThrowExceptions:YES];
 	}
 }
-
 
 - (IBAction) widthFieldUsed:(id)sender	{
 	NSString	*tmpString = [widthField stringValue];
@@ -374,5 +370,113 @@
 	[self loadFile:[[targetFile copy] autorelease]];
 }
 
+// OSC receive
+
+- (void) printItemArray {
+    [itemArray rdlock];
+    for (ISFUIItem *itemPtr in [itemArray array])	{
+        id		tmpVal = [itemPtr getNSObjectValue];
+        if (tmpVal != nil)	{
+            NSLog(@"\t\t%@ - %@",[itemPtr name],tmpVal);
+        }
+    }
+    [itemArray unlock];
+}
+
+- (void) printSceneInputs {
+    MutLockArray		*sceneInputs = [scene inputs];
+    GLfloat currentVals[4];
+    [sceneInputs rdlock];
+    for (ISFAttrib *attrib in [sceneInputs array])	{
+        ISFAttribValType		attribType = [attrib attribType];
+        switch (attribType)	{
+            case ISFAT_Event:
+                NSLog(@"\t\tname %@ - is event", [attrib attribName]);
+                break;
+            case ISFAT_Bool:
+                NSLog(@"\t\tname %@ - is bool", [attrib attribName]);
+                break;
+            case ISFAT_Long:
+                NSLog(@"\t\tname %@ - is long", [attrib attribName]);
+                break;
+            case ISFAT_Float:
+                NSLog(@"\t\tattrib name %@ - minVal: %f maxVal: %f currentVal: %f",[attrib attribName], [attrib minVal].floatVal, [attrib maxVal].floatVal, [attrib currentVal].floatVal);
+                break;           case ISFAT_Image:
+ 
+                NSLog(@"\t\tname %@ - is image", [attrib attribName]);
+                break;
+            case ISFAT_Audio:
+                NSLog(@"\t\tname %@ - is audio", [attrib attribName]);
+                break;
+            case ISFAT_AudioFFT:
+                NSLog(@"\t\tname %@ - is audioFFT", [attrib attribName]);
+                break;
+            case ISFAT_Color:
+                for (int i=0; i<4; ++i)
+                    currentVals[i] = [attrib currentVal].colorVal[i];
+                //[colorField setColor:[NSColor colorWithDeviceRed:tmpFloat[0] green:tmpFloat[1] blue:tmpFloat[2] alpha:tmpFloat[3]]];
+                NSLog(@"\t\tattrib name %@ - currentVal: %f, %f, %f, %f",[attrib attribName], currentVals[0], currentVals[1], currentVals[2], currentVals[3]);
+                break;
+            case ISFAT_Point2D:
+
+                break;
+            case ISFAT_Cube:
+                break;
+        }
+    }
+    [sceneInputs unlock];
+}
+
+- (void) setItemValue:(NSString*)name value:(id)val {
+    //Loop through scene inputs and get min max values
+    ISFAttrib *currentAttrib = nil;
+    MutLockArray		*sceneInputs = [scene inputs];
+    [sceneInputs rdlock];
+    for (ISFAttrib *attrib in [sceneInputs array])	{
+        if([[attrib attribName] isEqualToString:name]) {
+            currentAttrib = attrib;
+        }
+    }
+    [sceneInputs unlock];
+
+    //Convert input to float if possible
+    float floatVal = [val floatValue];
+
+    //Calculate value which should be in 0-1 range to fit the scale of the slider
+        float scaledVal = (floatVal * ([currentAttrib maxVal].floatVal - [currentAttrib minVal].floatVal)) + [currentAttrib minVal].floatVal;
+    NSLog(@"\t\tfloat value: %f",scaledVal);
+    NSNumber *sVal = [NSNumber numberWithFloat:scaledVal];
+
+    //Loop through UI elements and set value
+    [itemArray rdlock];
+    for (ISFUIItem *itemPtr in [itemArray array])	{
+        if ([[itemPtr name] isEqualToString:name]) {
+            NSLog(@"\t\tmatch found %@",[itemPtr name]);
+            [itemPtr setNSObjectValue:sVal];
+            
+        }
+    }
+    [itemArray unlock];
+}
+
+/*
+- (void) setItemValue:(NSString*)name value:(id)val {
+    [itemArray rdlock];
+    for (ISFUIItem *itemPtr in [itemArray array])	{
+        id		tmpVal = [itemPtr getNSObjectValue];
+        if (tmpVal != nil)	{
+            NSLog(@"\t\t%@ - %@",[itemPtr name],tmpVal);
+        }
+        if ([[itemPtr name] isEqualToString:name]) {
+            NSLog(@"\t\tmatch found %@",[itemPtr name]);
+            [itemPtr setNSObjectValue:val];
+            
+        }
+    }
+    [itemArray unlock];
+}
+*/
+
+//
 
 @end

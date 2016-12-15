@@ -12,8 +12,6 @@
 #import "ISFUIItem.h"
 
 
-
-
 @interface ISFController : NSObject	{
 	IBOutlet id				appDelegate;
 	IBOutlet NSScrollView	*uiScrollView;
@@ -52,5 +50,12 @@
 - (ISFGLScene *) scene;
 - (NSString *) targetFile;
 - (void) reloadTargetFile;
+
+//OSC receive
+
+- (void) printItemArray;
+- (void) printSceneInputs;
+- (void) setItemValue:(NSString*)name value:(id)val;
+//
 
 @end

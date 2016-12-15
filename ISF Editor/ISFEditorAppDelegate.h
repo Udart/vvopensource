@@ -86,6 +86,7 @@
 
 - (void) addRXMsg:(OSCMessage *)m;
 - (void) _lockedUpdateDataAndViews;
+- (void) setInputItemValue:(OSCMessage *)m;
 
 //
 

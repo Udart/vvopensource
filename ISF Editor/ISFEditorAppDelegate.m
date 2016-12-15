@@ -76,7 +76,7 @@
         ++lineCount;
     }
     
-    NSLog(@"Value of rxString is %@", rxString);
+    //NSLog(@"Value of rxString is %@", rxString);
     
     [rxDataView
      performSelectorOnMainThread:@selector(setString:)
@@ -93,6 +93,16 @@
     [rxMsgs addObject:m];
     [self _lockedUpdateDataAndViews];
     [rxMsgs unlock];
+    
+    //Test of setting value by OSC
+    [self setInputItemValue:m];
+}
+
+-(void) setInputItemValue:(OSCMessage *)m {
+    //NSNumber* val = [NSNumber numberWithFloat:0.9];
+    NSString *address = [[m address] stringByReplacingOccurrencesOfString:@"/"
+                                                            withString:@""];
+    [isfController setItemValue:address value:[m value]];
 }
 
 /* -------- */
