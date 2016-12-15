@@ -444,14 +444,14 @@
 
     //Calculate value which should be in 0-1 range to fit the scale of the slider
         float scaledVal = (floatVal * ([currentAttrib maxVal].floatVal - [currentAttrib minVal].floatVal)) + [currentAttrib minVal].floatVal;
-    NSLog(@"\t\tfloat value: %f",scaledVal);
+    //NSLog(@"\t\tfloat value: %f",scaledVal);
     NSNumber *sVal = [NSNumber numberWithFloat:scaledVal];
 
     //Loop through UI elements and set value
     [itemArray rdlock];
     for (ISFUIItem *itemPtr in [itemArray array])	{
         if ([[itemPtr name] isEqualToString:name]) {
-            NSLog(@"\t\tmatch found %@",[itemPtr name]);
+            //NSLog(@"\t\tmatch found %@",[itemPtr name]);
             [itemPtr setNSObjectValue:sVal];
             
         }

@@ -540,8 +540,14 @@
 	return *(int *)value;
 }
 - (float) floatValue	{
-	return *(float *)value;
+    if (type == OSCValInt) {
+        int intVal = *(int *)value;
+        return (float) intVal;
+    } else {
+        return *(float *)value;
+    }
 }
+
 - (NSString *) stringValue	{
 	return (NSString *)value;
 }
