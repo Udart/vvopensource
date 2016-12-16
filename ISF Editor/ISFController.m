@@ -427,32 +427,55 @@
     [sceneInputs unlock];
 }
 
-- (void) setItemValue:(NSString*)name value:(id)val {
-    //Loop through scene inputs and get min max values
+- (void) setItemValue:(NSString*)name value:(OSCValue *)val {
+    //Loop through scene inputs and get the matching attribute element
     ISFAttrib *currentAttrib = nil;
     MutLockArray		*sceneInputs = [scene inputs];
     [sceneInputs rdlock];
     for (ISFAttrib *attrib in [sceneInputs array])	{
         if([[attrib attribName] isEqualToString:name]) {
             currentAttrib = attrib;
+            break;
         }
     }
     [sceneInputs unlock];
+    
+    //Decide how to set value based on the type of the attribute
+    ISFAttribValType		attribType = [currentAttrib attribType];
+    id setValue = nil;
+    float scaledVal;
+    switch (attribType)	{
+        case ISFAT_Long:
+        case ISFAT_Float:
+            //Calculate value which should be in 0-1 range to fit the scale of the slider
+            scaledVal = ([val floatValue] * ([currentAttrib maxVal].floatVal - [currentAttrib minVal].floatVal)) + [currentAttrib minVal].floatVal;
+            //NSLog(@"\t\tfloat value: %f",scaledVal);
+            setValue = [NSNumber numberWithFloat:scaledVal];
 
-    //Convert input to float if possible
-    float floatVal = [val floatValue];
-
-    //Calculate value which should be in 0-1 range to fit the scale of the slider
-        float scaledVal = (floatVal * ([currentAttrib maxVal].floatVal - [currentAttrib minVal].floatVal)) + [currentAttrib minVal].floatVal;
-    //NSLog(@"\t\tfloat value: %f",scaledVal);
-    NSNumber *sVal = [NSNumber numberWithFloat:scaledVal];
-
+            break;
+        case ISFAT_Color:
+            if ([val type] == 8) {
+                setValue = (NSColor *)[val colorValue];
+            }
+            break;
+        case ISFAT_Bool:
+        case ISFAT_Event:
+        case ISFAT_Audio:
+        case ISFAT_AudioFFT:
+            setValue = val;
+            break;
+        case ISFAT_Point2D:
+        case ISFAT_Image:
+        case ISFAT_Cube:
+            break;
+    }
+    
     //Loop through UI elements and set value
     [itemArray rdlock];
     for (ISFUIItem *itemPtr in [itemArray array])	{
         if ([[itemPtr name] isEqualToString:name]) {
             //NSLog(@"\t\tmatch found %@",[itemPtr name]);
-            [itemPtr setNSObjectValue:sVal];
+            [itemPtr setNSObjectValue:setValue];
             
         }
     }

@@ -102,7 +102,12 @@
     //NSNumber* val = [NSNumber numberWithFloat:0.9];
     NSString *address = [[m address] stringByReplacingOccurrencesOfString:@"/"
                                                             withString:@""];
+//    if ([m valueCount] > 1) {
+//        [isfController setItemValue:address value:[m valueArray]];
+//    } else {
     [isfController setItemValue:address value:[m value]];
+//    }
+
 }
 
 /* -------- */

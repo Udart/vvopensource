@@ -10,7 +10,7 @@
 #import <VVBufferPool/VVBufferPool.h>
 #import <VVISFKit/VVISFKit.h>
 #import "ISFUIItem.h"
-
+#import <VVOSC/VVOSC.h>
 
 @interface ISFController : NSObject	{
 	IBOutlet id				appDelegate;
