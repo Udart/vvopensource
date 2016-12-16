@@ -87,7 +87,7 @@
 - (void) addRXMsg:(OSCMessage *)m;
 - (void) _lockedUpdateDataAndViews;
 - (void) setInputItemValue:(OSCMessage *)m;
-
+- (void) selectInputFilter:(OSCMessage *)m;
 //
 
 - (IBAction) importFromISFSite:(id)sender;

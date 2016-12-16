@@ -86,6 +86,7 @@
     lineCount = 0;
 }
 
+//Add incoming osc message to list + handle message
 - (void) addRXMsg:(OSCMessage *)m	{
     if (m==nil)
         return;
@@ -94,19 +95,40 @@
     [self _lockedUpdateDataAndViews];
     [rxMsgs unlock];
     
-    //Test of setting value by OSC
+    //setting value by OSC
     [self setInputItemValue:m];
 }
 
+//Handle OSC message action
 -(void) setInputItemValue:(OSCMessage *)m {
     //NSNumber* val = [NSNumber numberWithFloat:0.9];
     NSString *address = [[m address] stringByReplacingOccurrencesOfString:@"/"
                                                             withString:@""];
-//    if ([m valueCount] > 1) {
-//        [isfController setItemValue:address value:[m valueArray]];
-//    } else {
-    [isfController setItemValue:address value:[m value]];
-//    }
+    if([address  isEqual: @"filter"]) {
+        //Select shader filter from list
+        [self selectInputFilter:m];
+     }
+    else {
+        //Set filter input values
+        [isfController setItemValue:address value:[m value]];
+    }
+}
+    //Select shader filter from list from OSC.
+    //OSC value must be float. 0.05 selects no 5 in list. 0.06 selects no 6 etc.
+- (void) selectInputFilter:(OSCMessage *)m {
+    NSInteger filterCount = [filterList count];
+    OSCValue *value = [m value];
+    NSInteger intValue = 0;
+    NSLog(@"value type: %u", [value type]);
+    if ([value type] == 2) {
+        intValue = [value floatValue] * 100;
+        if (intValue >= 0 && intValue < filterCount) {
+            //We are in a background thread and we send this to the main thread
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [filterTV selectRowIndexes:[NSIndexSet indexSetWithIndex:intValue] byExtendingSelection:NO];
+            });
+        }
+    }
 
 }
 
