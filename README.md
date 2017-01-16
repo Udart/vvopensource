@@ -13,6 +13,11 @@ ISF Editor is Mac application that lets you select between a whole number of ima
 
 I have modified ISF Editor to take in OSC signals so that it can be controlled from outside. This is handy for live visual performance. Any OSC device or app can be the source but it plays nicely together with the Mac app Vezer.
 
+Download
+--------
+
+Download the Mac app here: https://github.com/vibber/vvopensource/blob/master/app/ISF%20Editor.zip?raw=true
+
 OSC setup
 ---------
 At the bottom of the main ISF Editor window you will see what address and port receives OSC messages. Next to it you will see the messages that come in. To control a filter slider you send a number between 0-1 to the address that is the name of the slider. 
