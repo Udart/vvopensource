@@ -13,6 +13,11 @@ ISF Editor is Mac application that lets you select between a whole number of ima
 
 I have modified ISF Editor to take in OSC signals so that it can be controlled from outside. This is handy for live visual performance. Any OSC device or app can be the source but it plays nicely together with the Mac app Vezer.
 
+Demonstration
+-------------
+
+Here is a demonstration video of how to use the app: https://vimeo.com/199638156
+
 Download
 --------
 
