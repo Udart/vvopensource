@@ -11,7 +11,7 @@ The reason for the fork is that I have modified the ISF Editor with some new fea
 
 ISF Editor is Mac application that lets you select between a whole number of image filters and apply the to your camera feed or Syphon source. The result is published as a Syphon feed. The filters are actually shader code, and you can import from shadertoy or edit directly in this app.
 
-I have modified ISF Editor to take in OSC signals so that it can be controlled from outside. This is handy for live visual performance. Any OSC device or app can be the source but it plays nicely together with the Mac app Vezer.
+I have modified ISF Editor to take in OSC signals so that it can be controlled from outside. This is handy for live visual performance. Any OSC device or app can be the source but it plays nicely together with the Mac app Vezer and my own Volumetric.
 
 Demonstration
 -------------
@@ -21,7 +21,7 @@ Here is a demonstration video of how to use the app: https://vimeo.com/199638156
 Download
 --------
 
-Download the Mac app here: https://github.com/vibber/vvopensource/blob/master/app/ISF%20Editor.zip?raw=true
+Download the Mac app here: https://github.com/Udart/vvopensource/blob/master/app/ISF%20Editor.zip?raw=true
 
 OSC setup
 ---------
