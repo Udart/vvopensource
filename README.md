@@ -26,13 +26,13 @@ Download the Mac app here: https://github.com/Udart/vvopensource/blob/master/app
 OSC setup
 ---------
 At the bottom of the main ISF Editor window you will see what address and port receives OSC messages. Next to it you will see the messages that come in. To control a filter slider you send a number between 0-1 to the address that is the name of the slider. 
-E.g. if you have selected the ASCII Art filter you can send 0.5 to /size. 
+E.g. if you have selected the ASCII Art filter you can send 0.5 to `/size`. 
 
 For a color selector you can send a special formatted color message. You might want to take a look at the OSCTestApp (included in this project) and send color from there. You can also send color from the app Vezer.
 
 Other types of input such as point2d are not able to receive OSC data at this point.
 
-It is also posiible to select a filter from the list using OSC. You do this by sending a decimal number. 0.00 is the first filter. 0.01 is the second and so forth. The reason for this format is that I want all OSC values to be between 0-1 which is a convention in many devices and OSC apps.
+It is also posiible to select a filter from the list using OSC. You do this by sending a decimal number to `/filter`. 0.00 is the first filter. 0.01 is the second and so forth. The reason for this format is that I want all OSC values to be between 0-1 which is a convention in many devices and OSC apps.
 
 How to get help
 ---------------
